@@ -11,7 +11,7 @@ from aiogram.fsm.state import StatesGroup, State
 from aiogram.filters import Command
 
 #--- База данных ---#
-from database.db import set_user_time, get_user_time, delete_user_time
+from infra.db import set_user_time, get_user_time, delete_user_time
 
 # для прокладки маршрута
 time_router = Router()
