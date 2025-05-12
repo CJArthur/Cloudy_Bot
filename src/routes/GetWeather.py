@@ -9,7 +9,7 @@ from aiogram.fsm.state import StatesGroup, State
 from aiogram.filters import Command
 
 #--- Импорт из time ---#
-from handlers.time_handler import grinvich_t, user_t
+from routes.time_handler import grinvich_t, user_t
 
 #--- Передача API-ключа ---#
 from config import API_KEY

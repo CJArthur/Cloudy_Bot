@@ -12,12 +12,12 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
 
 #--- Файлы с функциями ---#
-import handlers.time_handler as time_handler
-from handlers.time_handler import grinvich_t, user_t
-import handlers.GetWeather as GetWeather
+import routes.time_handler as time_handler
+from routes.time_handler import grinvich_t, user_t
+import routes.GetWeather as GetWeather
 
 #--- Передадим приветствия ---#
-from handlers.GetWeather import greetings
+# from routes.GetWeather import greetings
 
 #--- Токен и ключ из config ---#
 from config import BOT_TOKEN, API_KEY
@@ -101,7 +101,7 @@ async def get_weather(message: Message, state: FSMContext):
             i = 3
 
         # Отправляем сообщение
-        await message.answer(f"{greetings[i]}, {message.from_user.full_name}!\n"
+        await message.answer(f"{message.from_user.full_name}!\n"
                              f"Погода в городе *{main_city.title()}*\n\n"
                              "Текущие данные:\n"
                              f"Местное время: {fin_utc}\n"
