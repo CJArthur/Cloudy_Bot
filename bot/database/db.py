@@ -116,19 +116,19 @@ def delete_user_city_db(user_id: int, city: str):
 
     conn.close()
 
-# # Для sheduller
-# def get_all_user_times_and_cities():
-#     conn = sqlite3.connect("bot_database.db")
-#     cursor = conn.cursor()
+# Для sheduler
+def get_all_user_times_and_cities():
+    conn = sqlite3.connect("bot_database.db")
+    cursor = conn.cursor()
 
-#     cursor.execute("""
-#         SELECT ut.user_id, uc.city, ut.time
-#         FROM users_time ut
-#         JOIN users_city uc ON ut.user_id = uc.user_id
-#     """)
-#     results = cursor.fetchall()
-#     conn.close()
+    cursor.execute("""
+        SELECT ut.user_id, uc.city, ut.time
+        FROM users_time ut
+        JOIN users_city uc ON ut.user_id = uc.user_id
+    """)
+    results = cursor.fetchall()
+    conn.close()
 
-#     return results  # список кортежей: (user_id, city, time)
+    return results
 
 
