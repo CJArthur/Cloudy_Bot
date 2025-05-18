@@ -2,7 +2,6 @@
 import aiohttp
 from datetime import timedelta, datetime, timezone
 from config import WEATHER_API_KEY
-from handlers.notification_handler import user_t
 
 greetings = ['Доброе утро', 'Добрый день', 'Добрый вечер', 'Доброй ночи']
 
@@ -20,13 +19,15 @@ def get_greeting(hour: int) -> str:
 async def get_weather_data_by_city(city: str) -> dict:
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&lang=ru&appid={WEATHER_API_KEY}"
 
-    # Запрос
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
             data = await response.json()
 
+    # Переводим время в локальное
     grinvich_t = datetime.now(timezone.utc)
     local_time = grinvich_t + timedelta(seconds=data['timezone'])
+
+    user_t = int(local_time.strftime('%H'))
 
     return {
         'greeting': get_greeting(user_t),
@@ -49,6 +50,8 @@ async def get_weather_data_by_coords(lat: float, lon: float) -> dict:
 
     grinvich_t = datetime.now(timezone.utc)
     local_time = grinvich_t + timedelta(seconds=data['timezone'])
+
+    user_t = int(local_time.strftime('%H'))
 
     return {
         'greeting': get_greeting(user_t),
