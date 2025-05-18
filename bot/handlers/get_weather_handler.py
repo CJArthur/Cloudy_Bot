@@ -32,18 +32,19 @@ async def get_weather(message: Message, state: FSMContext):
     
     # Получаем название города из сообщения
     main_city = message.text
+    user_name = message.from_user.full_name
 
     try:
         weather = await get_weather_data_by_city(main_city)
         
-        await message.answer(f"{weather['greeting']}, *{message.from_user.full_name}*!\n"
+        await message.answer(f"{weather['greeting']}, *{user_name}*!\n"
                              f"Погода в городе {weather['city']}\n\n"
-                              "Текущие данные\n"
-                             f"Местное время: {weather['time']}\n"
-                             f"Температура: {weather['temp']}°C\n"
-                             f"Ощущается как: {weather['feels_like']}°C\n"
-                             f"Влажность: {weather['humidity']}%\n"
-                             f"Ветер: {weather['wind']} м/с",
+                              "📋 Текущие данные\n"
+                             f"🕒 Местное время: {weather['time']}\n"
+                             f"🌡 Температура: {weather['temp']}°C\n"
+                             f"🌡 Ощущается как: {weather['feels_like']}°C\n"
+                             f"💧 Влажность: {weather['humidity']}%\n"
+                             f"💨 Ветер: {weather['wind']} м/с",
                              parse_mode = "Markdown")             
     except Exception as e:
         print(e)
@@ -75,12 +76,12 @@ async def handle_location(message: types.Message, state: FSMContext):
 
         await message.answer(f"{weather['greeting']}, *{message.from_user.full_name}*!\n"
                              f"Погода в городе {weather['city']}\n\n"
-                              "Текущие данные\n"
-                             f"Местное время: {weather['time']}\n"
-                             f"Температура: {weather['temp']}°C\n"
-                             f"Ощущается как: {weather['feels_like']}°C\n"
-                             f"Влажность: {weather['humidity']}%\n"
-                             f"Ветер: {weather['wind']} м/с",
+                              "📋 Текущие данные\n"
+                             f"🕒 Местное время: {weather['time']}\n"
+                             f"🌡 Температура: {weather['temp']}°C\n"
+                             f"🌡 Ощущается как: {weather['feels_like']}°C\n"
+                             f"💧 Влажность: {weather['humidity']}%\n"
+                             f"💨 Ветер: {weather['wind']} м/с",
                              parse_mode = "Markdown")
         await state.clear()
     except Exception as e:
