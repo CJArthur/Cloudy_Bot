@@ -42,7 +42,7 @@ def create_cities_ikb(cities: list[str]) -> InlineKeyboardMarkup:
 
     for city in cities:
         if "," in city:
-            region = city.split(",")[1].strip()
+            region = city.split(",")[0].strip()
         else:
             region = city.strip()
         buttons.append([InlineKeyboardButton(text=city, callback_data=f"add_{region}")])
