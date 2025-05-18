@@ -3,24 +3,24 @@
 Бот на aiogram, который выводит погоду исходя из введенного города, присылает погоду по установленному времени
 
 # Технологии
-~ Python 3.11+
-~ aiogram 3
-~ APScheduler
-~ SQLite
-~ OpenWeatherMap API
+1. ~ Python 3.11+
+2. ~ aiogram 3
+3. ~ APScheduler
+4. ~ SQLite
+5. ~ OpenWeatherMap API
 
 # Возможности:
-~ Команды /start, /time
-~ Вывод погоды по введенному городу
-~ Автоопредление города и вывод погоды по геолокации
-~ Установка уведомлений
-~ Возможность установить до 3 параметров времен, когда будут приходить уведомления
+1. ~ Команды /start, /time
+2. ~ Вывод погоды по введенному городу
+3. ~ Автоопредление города и вывод погоды по геолокации
+4. ~ Установка уведомлений
+5. ~ Возможность установить до 3 параметров времен, когда будут приходить уведомления
 
 # Установка через GitHub
 
-git clone https://github.com/CJArthur/Cloudy_Bot.git
-cd Cloudy_Bot
-pip install -r requirements.txt
+1. git clone https://github.com/CJArthur/Cloudy_Bot.git
+2. cd Cloudy_Bot
+3. pip install -r requirements.txt
 
 # Быстрый запуск с помощью Docker
 1. Установите Docker(https://www.docker.com/)
